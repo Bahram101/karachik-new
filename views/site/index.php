@@ -87,19 +87,20 @@
                     <h4 class="border_section pt-3">Дунё хабарлари</h4>
                     <div class="row ">
                         <?foreach ($articlesForMainPage[3] as $key => $val):?>
+
                             <?if($key == 0 or $key == 3):?>
                                 <div class="col-lg-6 pd-0">
-                                <div class="article__entry">
+                                    <div class="article__entry">
                                     <div class="article__image">
                                         <a href="#">
-                                            <img src="/images/placeholder/500x400.jpg" alt="" class="img-fluid">
+                                            <img src="/uploads/images/<?=$val['image']?>" alt="" class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="article__content">
                                         <ul class="list-inline">
                                             <li class="list-inline-item">
                                         <span class="text-dark text-capitalize">
-                                            descember 09, 2016
+                                            <?=$val['date_created']?>
                                         </span>
                                             </li>
                                         </ul>
@@ -111,16 +112,16 @@
                                         <p>
                                             <?=$val['short_content']?>
                                         </p>
-                                        <a href="#" class="btn btn-outline-primary mb-4 text-capitalize"> read more</a>
+                                        <a href="#" class="btn btn-outline-primary mb-4 text-capitalize">Батафсил</a>
                                     </div>
                                 </div>
                             <?endif;?>
                             <?if($key > 0 and $key < 3 or $key > 3 and $key < 6):?>
-                                <div class="mb-3">
+                                    <div class="mb-3">
                                     <div class="card__post card__post-list">
                                         <div class="image-sm">
                                             <a href="./card-article-detail-v1.html">
-                                                <img src="/images/placeholder/500x400.jpg" class="img-fluid" alt="">
+                                                <img src="/uploads/images/<?=$val['image']?>" class="img-fluid" alt="">
                                             </a>
                                         </div>
                                         <div class="card__post__body ">
@@ -129,7 +130,7 @@
                                                     <ul class="list-inline">
                                                         <li class="list-inline-item">
                                                         <span class="text-dark text-capitalize">
-                                                            descember 09, 2016
+                                                            <?=$val['date_created']?>
                                                         </span>
                                                         </li>
                                                     </ul>
@@ -149,6 +150,7 @@
                             <?if($key == 2 or $key == 5):?>
                                 </div>
                             <?endif;?>
+
                         <?endforeach;?>
                     </div>
                 </div>
