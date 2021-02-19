@@ -7,16 +7,12 @@
  */
 
 namespace app\widgets;
-
-
 use yii\base\Widget;
 
-class Menu extends Widget
-{
+class MenuWidget extends Widget{
 
     public function run(){
-
-        return $this->render('menu');
+        return $this->render('menu_widget');
 
     }
 

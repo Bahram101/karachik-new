@@ -1,13 +1,20 @@
+<?php
 
-<?php use app\widgets\Menu;
+use app\assets\AppAsset;
+use app\widgets\MenuWidget;
+use app\widgets\Widget;
 use yii\helpers\Html;
 
-$this->beginPage() ?>
-<!DOCTYPE html>
-<html lang="">
 
+
+AppAsset::register($this);
+$this->beginPage();
+?>
+
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta charset="utf-8">
+    <meta charset="<?= Yii::$app->charset ?>">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -25,7 +32,7 @@ $this->beginPage() ?>
 </head>
 
 <body class="body-box bg-news-image">
-<?php $this->beginPage()?>
+<?php $this->beginBody()?>
     <!-- loading -->
     <div class="loading-container">
         <div class="h-100 d-flex align-items-center justify-content-center">
@@ -66,9 +73,16 @@ $this->beginPage() ?>
                     <div class="col-sm-12 col-md-7">
                         <div class="list-unstyled topbar-right">
                             <ul class="topbar-link">
-                                <li><a href="#" title="">Career</a></li>
-                                <li><a href="#" title="">Contact Us</a></li>
-                                <li><a href="#" title="">Login / Register</a></li>
+                                <!--<li><a href="#" title="">Career</a></li>
+                                <li><a href="#" title="">Contact Us</a></li>-->
+                                <? if(!Yii::$app->user->isGuest):?>
+                                    <li><a href="/user/logout" title="">Чиқиш</a></li>
+                                    <li><a href="/user/profile" title="">Профиль</a></li>
+                                <? else:?>
+                                    <li><a href="/user/login" title="">Кириш</a></li>
+                                    <li><a href="/user/register" title="">Руйхатдан утиш</a></li>
+                                <? endif;?>
+
                             </ul>
                             <ul class="topbar-sosmed">
                                 <li>
@@ -93,7 +107,7 @@ $this->beginPage() ?>
                 <div class="row">
                     <div class=" col-sm-12 col-md-4 my-auto d-none d-sm-block ">
                         <figure class="mb-0">
-                            <a href="/homepage-v2.html">
+                            <a href="/">
                                 <img src="/images/placeholder/logo.jpg" alt="" class="img-fluid logo">
                             </a>
                         </figure>
@@ -125,7 +139,7 @@ $this->beginPage() ?>
                         </a>
                     </figure>
 
-                    <?=Menu::widget()?>
+                    <?=MenuWidget::widget()?>
                 </div>
             </nav>
 
@@ -242,33 +256,6 @@ $this->beginPage() ?>
             </div> <!-- modal-bialog .// -->
         </div> <!-- modal.// -->
         <!-- End Navbar  -->
-        <!-- Tranding News -->
-        <div class="bg-white">
-            <div class="trending-news pt-4 border-tranding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- Breadcrumb -->
-                            <ul class="breadcrumbs bg-light mb-0">
-                                <li class="breadcrumbs__item">
-                                    <a href="index.html" class="breadcrumbs__url">
-                                        <i class="fa fa-home"></i> Home</a>
-                                </li>
-                                <li class="breadcrumbs__item">
-                                    <a href="index.html" class="breadcrumbs__url">News</a>
-                                </li>
-                                <li class="breadcrumbs__item breadcrumbs__item--current">
-                                    World
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Tranding News -->
-
 
     </header>
     <!-- End Header news -->
@@ -451,9 +438,10 @@ $this->beginPage() ?>
     </section>
 
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-
     <script type="text/javascript" src="/js/index.bundle.js?537a1bbd0e5129401d28"></script>
-<?php $this->endPage() ?>
+
+
+<?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
