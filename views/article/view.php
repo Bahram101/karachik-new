@@ -5,6 +5,9 @@
  * Date: 24.02.2021
  * Time: 14:59
  */
+
+use yii\helpers\Html;
+
 ?>
 
 <div class="container">
@@ -48,15 +51,15 @@
             <!-- News Tags -->
             <div class="blog-tags">
                 <ul class="list-inline">
-                    <? foreach($article->tags as $tag):?>
+                    <? foreach($article->explodeStr($article->tag) as $tag):?>
                     <li class="list-inline-item">
-                        <a href="/tag/<?=$tag->name?>"><?=$tag->name?></a>
+                        <a href="/tag/<?=$tag?>"><?=$tag?></a>
                     </li>
                     <? endforeach;?>
                 </ul>
             </div>
 
-            <!-- Profile author -->
+            <!-- Social share icons-->
             <div class="wrap__profile">
                 <div class="wrap__profile-author">
                     <div class="wrap__profile-author-detail">
@@ -90,43 +93,35 @@
                     </div>
                 </div>
             </div>
+            <!-- Social share icons-->
             <hr>
 
             <!-- Related Articles-->
             <div class="related-article">
                 <h4 style="margin-top:55px">Бошқа мақолалар</h4>
-
                 <div class="article__entry-carousel-three">
+                    <? foreach($relatedArticles as $item):?>
                     <div class="item">
-
                         <div class="article__entry">
                             <div class="article__image">
                                 <a href="#">
-                                    <img src="/images/placeholder/500x400.jpg" alt="" class="img-fluid">
+                                    <img src="/uploads/images/<?=$item->image?>" alt="" class="img-fluid">
                                 </a>
                             </div>
                             <div class="article__content">
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <span class="text-primary">
-                                            by david hall
-                                        </span>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <span>
-                                            descember 09, 2016
-                                        </span>
+                                        <span><?=$item->date_created;?></span>
                                     </li>
                                 </ul>
                                 <h5>
-                                    <a href="#">
-                                        Maecenas accumsan tortor ut velit pharetra mollis.
-                                    </a>
+                                    <a href="#"><?=Html::encode($item->title);?></a>
                                 </h5>
 
                             </div>
                         </div>
                     </div>
+                    <? endforeach?>
                 </div>
             </div>
 
@@ -263,26 +258,6 @@
                 </div>
             </div>
             <!-- Comment -->
-
-            <!-- Previous and Next Post-->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="single_navigation-prev">
-                        <a href="#">
-                            <span>previous post</span>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, similique.
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="single_navigation-next text-left text-md-right">
-                        <a href="#">
-                            <span>next post</span>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, nesciunt.
-                        </a>
-                    </div>
-                </div>
-            </div>
 
             <div class="clearfix"></div>
 

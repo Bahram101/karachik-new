@@ -31,7 +31,7 @@ $this->beginPage();
 <body class="body-box bg-news-image" style="background-image: none;">
 <?php $this->beginBody() ?>
 <!-- loading -->
-<div class="loading-container">
+<!--<div class="loading-container">
     <div class="h-100 d-flex align-items-center justify-content-center">
         <ul class="list-unstyled">
             <li>
@@ -51,7 +51,7 @@ $this->beginPage();
             </li>
         </ul>
     </div>
-</div>
+</div>-->
 <!-- End loading -->
 
 <!-- Header news -->
@@ -136,7 +136,40 @@ $this->beginPage();
                         <img src="/images/placeholder/logo.jpg" alt="" class="img-fluid logo">
                     </a>
                 </figure>
-                <?= MenuWidget::widget() ?>
+
+                <div class="collapse navbar-collapse justify-content-between" id="main_nav99">
+                    <ul class="navbar-nav">
+                        <?= MenuWidget::widget(['tpl' => 'menu']) ?>
+                    </ul>
+                    <ul class="navbar-nav ">
+                        <li class="nav-item search hidden-xs hidden-sm "><a class="nav-link" href="#">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="top-search navigation-shadow">
+                        <div class="container">
+                            <div class="input-group ">
+                                <form action="#">
+                                    <div class="row no-gutters mt-3">
+                                        <div class="col">
+                                            <input class="form-control border-secondary border-right-0 rounded-0"
+                                                   type="search" value="" placeholder="Search">
+                                        </div>
+                                        <div class="col-auto">
+                                            <a class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right"
+                                               href="/search-result.html">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </nav>
     </div>

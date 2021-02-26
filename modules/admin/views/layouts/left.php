@@ -28,7 +28,7 @@
 
         <?= dmstr\widgets\Menu::widget(
             [
-                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
+                'options' => ['class' => 'sidebar-menu_widget tree', 'data-widget'=> 'tree'],
                 'items' => [
 //                    ['label' => 'Widget Yii2', 'options' => ['class' => 'header']],
                     ['label' => 'Статьи', 'icon' => 'file-code-o', 'url' => ['/gii']],

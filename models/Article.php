@@ -18,13 +18,16 @@ class Article extends ActiveRecord{
         return 'articles';
     }
 
+
     public function getCategory(){
         return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 
+
     public function getTags(){
         return $this->hasMany(Tag::class, ['article_id'=>'id']);
     }
+
 
     public static function getArticlesForMainPage(){
         $cats = [
@@ -82,9 +85,19 @@ class Article extends ActiveRecord{
         return $datas;
     }
 
+
     public function viewedCounter(){
         $this->hits += 1;
         return $this->save(false);
+    }
+
+
+    public function explodeStr($str){
+        return $tags = explode(',', $str);
+    }
+
+    public function getRelatedArticles(){
+        return $this->find()->where(['category_id'=>$this->category_id])->orderBy('RAND()')->limit(5)->all();
     }
 
 

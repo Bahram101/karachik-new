@@ -14,12 +14,11 @@ use yii\web\Controller;
 class ArticleController extends Controller{
 
     public function actionView($id){
-        $article = Article::find()->with('tags')
-            ->where(['id'=>$id])
-            ->one();
-        $article->viewedCounter();
+        $article = Article::findOne($id);
+        $relatedArticles = $article->getRelatedArticles();
+//        $article->viewedCounter();
 
-        return $this->render('view', compact('article'));
+        return $this->render('view', compact('article','relatedArticles'));
     }
 
 }
