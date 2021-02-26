@@ -1,6 +1,9 @@
 <?
+
+use app\widgets\Alert;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+//use Yii;
 ?>
 
 <!-- login -->
@@ -8,36 +11,47 @@ use yii\helpers\Html;
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <? if(!empty(Yii::$app->session->getFlash('registered'))){?>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <?= Yii::$app->session->getFlash('registered')?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?} ?>
+                <? if(!empty(Yii::$app->session->getFlash('activated'))){?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?= Yii::$app->session->getFlash('activated')?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?} ?>
                 <!-- Form Login -->
                 <div class="card mx-auto" style="max-width: 380px;">
                     <div class="card-body">
                         <h4 class="card-title mb-4">Sign in</h4>
-                        <!--<form action="#">
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Username" type="text">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Password" type="password">
-                            </div>
-                            <div class="form-group">
-                                <a href="#" class="float-right">Forgot password?</a>
-                                <label class="float-left custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" checked="">
-                                    <span class="custom-control-label"> Remember </span>
-                                </label>
-                            </div> <
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block"> Login </button>
-                            </div>
-                        </form>-->
 
-                        <?php 
 
-                        $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                        <?php $form = ActiveForm::begin([
+                            'id' => 'login-form',
+                            'layout' => 'horizontal',
+                            'fieldConfig' => [
+                                'template' => "{label}\n
+                                    <div class=\"col-lg-12\">{input}</div>\n
+                                    <div class=\"col-lg-12\">{error}</div>",
+                                'labelOptions' => ['class' => ''],
+                            ],
+                        ]); ?>
 
-                        <?=$form->field($model, 'email')->textInput(['autofocus' => true])?>
+                        <?=$form->field($model, 'name')->textInput(['autofocus' => true])?>
 
                         <?=$form->field($model, 'password')->textInput()?>
+
+                        <?= $form->field($model, 'rememberMe', ['options' =>  ['class' => 'checkbox checkbox-danger']])->checkbox([
+                            'template' => "<div class=\"col-lg-offset-1 col-lg-12 \">{input} {label}</div>\n<div class=\"col-lg-8 \">{error}</div>"
+                        ])->label() ?>
+
 
                         <div class="form-group">
                             <?=Html::submitButton('Кириш', ['class'=>'btn btn-primary btn-block']) ?>

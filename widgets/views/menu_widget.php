@@ -236,7 +236,7 @@
 
     <!-- Search bar.// -->
     <ul class="navbar-nav ">
-        <li class="nav-item search hidden-xs hidden-sm "> <a class="nav-link" href="#">
+        <li class="nav-item search hidden-xs hidden-sm "><a class="nav-link" href="#">
                 <i class="fa fa-search"></i>
             </a>
         </li>

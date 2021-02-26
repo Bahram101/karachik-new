@@ -1,5 +1,7 @@
 <!-- login -->
 <?
+
+use app\widgets\Alert;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
@@ -11,6 +13,7 @@ use yii\helpers\Html;
                 <!-- Form Login -->
                 <div class="card mx-auto" style="max-width: 380px;">
                     <div class="card-body">
+
                         <h4 class="card-title mb-4">Руйхатдан утиш</h4>
 
                         <?php $form = ActiveForm::begin(['id' => 'register-form']); ?>

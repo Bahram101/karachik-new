@@ -34,7 +34,6 @@
                         Maecenas accumsan tortor ut velit pharetra mollis. Proin eu nisl et arcu iaculis placerat sollicitudin ut
                         est. In fringilla dui dui.
                     </p>
-                    <a href="#" class="btn btn-outline-primary mb-4 text-capitalize"> read more</a>
                 </div>
             </div>
             <div class="mb-3">
@@ -182,54 +181,6 @@
         </div>
     </aside>
 
-    <!-- social media -->
-    <aside class="wrapper__list__article">
-        <h4 class="border_section">stay conected</h4>
-        <!-- widget Social media -->
-        <div class="wrap__social__media">
-            <a href="#" target="_blank">
-                <div class="social__media__widget facebook">
-                <span class="social__media__widget-icon">
-                    <i class="fa fa-facebook"></i>
-                </span>
-                    <span class="social__media__widget-counter">
-                    19,243 fans
-                </span>
-                    <span class="social__media__widget-name">
-                    like
-                </span>
-                </div>
-            </a>
-            <a href="#" target="_blank">
-                <div class="social__media__widget twitter">
-                <span class="social__media__widget-icon">
-                    <i class="fa fa-twitter"></i>
-                </span>
-                    <span class="social__media__widget-counter">
-                    2.076 followers
-                </span>
-                    <span class="social__media__widget-name">
-                    follow
-                </span>
-                </div>
-            </a>
-            <a href="#" target="_blank">
-                <div class="social__media__widget youtube">
-                <span class="social__media__widget-icon">
-                    <i class="fa fa-youtube"></i>
-                </span>
-                    <span class="social__media__widget-counter">
-                    15,200 followers
-                </span>
-                    <span class="social__media__widget-name">
-                    subscribe
-                </span>
-                </div>
-            </a>
-
-        </div>
-    </aside>
-    <!-- End social media -->
 
     <!-- Newsletter news -->
     <aside class="wrapper__list__article">
@@ -279,16 +230,6 @@
                             Proin eu nisl et arcu iaculis placerat sollicitudin ut est
                         </a>
                     </h5>
-                    <!-- <p>
-                        Maecenas accumsan tortor ut velit pharetra mollis. Proin eu nisl et
-                        arcu
-                        iaculis
-                        placerat
-                        sollicitudin ut est. In fringilla dui dui.
-                    </p>
-                    <a href="#" class="btn btn-primary float-right">
-                        read more
-                    </a> -->
                 </div>
 
             </div>

@@ -5,6 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'language'=>'UZ',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'timeZone' => 'Asia/Almaty',
@@ -23,16 +24,23 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+//            'authTimeout' => 10
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by article. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
+//            'viewPath' => '@app/mail',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' =>'smtp.mail.ru',
+                'username' =>'bahram101@mail.ru',
+                'password' =>'auuatzassa10',
+                'port' =>'587',
+                'encryption' =>'tls',
+            ]
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -51,9 +59,10 @@ $config = [
             'rules' => [
                 'admin' => "/admin",
                 'category/<id:\d+>' => 'category/view',
+                'article/<id:\d+>' => 'article/view',
+                'tag/<tag:>' => 'tag/view',
                 '<action>' => 'site/<action>',
                 '<action>/<id:\d+>' => 'site/<action>',
-//                'article/<str:\w+>' => 'site/article',
             ],
         ],
 

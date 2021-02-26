@@ -4,7 +4,7 @@
         <ul class="list-inline">
             <? foreach($tags as $tag){?>
             <li class="list-inline-item">
-                <a href="#"><?=$tag['name'];?></a>
+                <a href="/tag/<?=$tag['name']?>"><?=$tag['name'];?></a>
             </li>
             <?}?>
         </ul>

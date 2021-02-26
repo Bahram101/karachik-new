@@ -1,0 +1,42 @@
+body{
+    /*background-image: none;*/
+}
+ul.pagination {
+    display: block;
+}
+
+.blog-tags .list-inline .list-inline-item a{
+    background: #c00 !important;
+    color:white !important;
+    border:1px solid #c00;
+}
+.blog-tags .list-inline .list-inline-item a:hover{
+    background: white !important;
+    color:#c00 !important;
+}
+
+ul.pagination .disabled {
+    color: #a6a6a6;
+    float: left;
+    padding: 6px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border: 1px solid #eee;
+    margin: 0 4px;
+}
+
+ul.pagination .active a {
+    background: #c00;
+    color: white;
+}
+
+ul.pagination .active a:hover {
+    background: #c00;
+    color: white;
+}
+
+.wrap__profile{
+    border:none;
+    margin-bottom:0;
+    padding: 0;
+}

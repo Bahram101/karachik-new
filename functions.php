@@ -1,7 +1,7 @@
 <?php 
 
 	function debug($arr){
-		echo '<pre>'.print_r($arr, true).'</pre>';die;
+		echo '<pre>'.print_r($arr, true).'</pre>';
 	}
 
 

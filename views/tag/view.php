@@ -1,3 +1,6 @@
+<?
+use yii\helpers\Url;
+?>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -22,11 +25,10 @@
     <div class="row">
         <div class="col-md-8">
             <aside class="wrapper__list__article ">
-
                 <div class="row">
-                    <? use yii\helpers\Url;
-
-                    foreach ($articles as $article): ?>
+                    <?
+                    if($articles){
+                        foreach ($articles as $article): ?>
                         <div class="col-md-6">
                             <!-- Post Article -->
                             <div class="article__entry">
@@ -56,7 +58,12 @@
                             </div>
 
                         </div>
-                    <? endforeach; ?>
+                        <? endforeach;
+                    }else{?>
+                        <div class="col-md-12"><h4>Бундай тегдаги мақола йўқ</h4></div>
+
+                    <?}
+                    ?>
                 </div>
 
             </aside>
